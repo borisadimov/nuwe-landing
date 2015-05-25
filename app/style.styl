@@ -2,6 +2,324 @@
 
 global-reset()
 
+light-grey  = #F9F9F9
+blue        = #3EACF7
+dark-blue   = #2D3B4F
+
+green       = #039870
+grey-blue   = #6998D1
+violet      = #A577B4
+orange      = #EC7C06
+
+colors = green, grey-blue, violet, orange
+
+mobile()
+  @media only screen and (max-width: 640px)
+    {block}
+
+tablet()
+  @media only screen and (min-width: 641) and (max-width: 960px)
+    {block}
+
+hd()
+  @media only screen and (min-width: 1201px)
+    {block}
+
+
+
+normal(size = 14px, line = 18px, space = 0em)
+  font: 400 size/line Helvetica Neue, "Helvetica Neue", HelveticaNeue-Light, Helvetica, Arial
+  -webkit-font-smoothing: antialiased
+  letter-spacing space
+
+light(size = 20px, line = 30px, space = 0)
+  font: 300 size/line HelveticaNeue-Light, Helvetica Neue, "Helvetica Neue", Helvetica, Arial
+  -webkit-font-smoothing: antialiased
+  letter-spacing space
+
+thin(size = 20px, line = 30px, space = 0)
+  font: 100 size/line HelveticaNeue-Thin, Helvetica Neue, "Helvetica Neue", Helvetica, Arial
+  -webkit-font-smoothing: antialiased
+  letter-spacing space
+
+bold(size = 14px, line = 18px, space = 0em)
+  font: 700 size/line Helvetica Neue, "Helvetica Neue", HelveticaNeue-Light, Helvetica, Arial
+  -webkit-font-smoothing: antialiased
+  letter-spacing space
+
+
+
+@keyframes animatedBackground
+  0%
+    background-position: 0 0
+  100%
+    background-position: 170px 0
+
+.button
+  &-colored
+    display inline-block
+    padding 0px 24px 0px 24px
+    color dark-blue
+
+    border-radius 40px
+    border none
+
+    background linear-gradient(right, #009A70 0%, #55A8CA 33%, #A74E97 66%, #E77600 100%)
+    transition all 0.5s ease
+    position relative
+    z-index 1
+    letter-spacing 0.05em
+    cursor pointer
+    bold 14px 48px
+
+    &:hover
+      color blue
+      animation animatedBackground 0.5s linear infinite
+
+
+
+    &:before
+      border-radius 40px
+      content ""
+      position absolute
+      z-index -1
+      top 1px
+      bottom 1px
+      left 1px
+      right 1px
+      background white
+
+
+
+body
+  light()
+
+  .container
+    max-width 1400px
+    margin 0 auto
+    position relative
+    flex: 1 1 auto
+    display: flex
+    justify-content: flex-start
+    align-items: center
+
+  .logo
+    position absolute
+    top 21px
+    left 27px
+    bold 36px 44px
+    color dark-blue
+    z-index 10
+
+
+  a.join
+    position absolute
+    right 20px
+    top 20px
+    z-index 10
+
+  .first_screen
+    background #F9F9F9
+    height 100vh
+    box-sizing border-box
+    padding-bottom 40px
+    .slider
+      .slide.first-slide
+        background: 100% 40% no-repeat
+        background-size: 40% auto
+        align-items: flex-start
+        .container
+          align-items: flex-start
+        .text
+          opacity 1
+          flex: 1 1 auto
+          max-width: initial
+
+
+      height: 100%
+      overflow: hidden
+      margin-bottom: 0
+      position: relative
+
+      .slick-prev
+        background: image-url('left_arrow.png') center center no-repeat
+        background-size: cover
+        left: 15px
+        left: 2vw
+        width: 13px
+        height: 32px
+        &:before
+          display: none
+      .slick-next
+        background: image-url('right_arrow.png') center center no-repeat
+        background-size: cover
+        right: 15px
+        right: 2vw
+        width: 13px
+        height: 32px
+        &:before
+          display: none
+
+
+      .slick-list
+        height: 100%
+        .slick-track
+          height: 100%
+    .slide
+      padding: 90px 30px
+      +tablet()
+        padding: 60px 30px
+      +mobile()
+        padding: 40px 30px
+      &.first-slide
+        padding-top: 15vh
+        +tablet
+          padding-top: 110px
+        +mobile
+          padding-top: 90px
+
+      background: #ffffff
+
+      display: flex
+      flex-direction: row
+      flex-wrap: nowrap
+      justify-content: space-around
+      align-items: center
+      height: 100%
+      +tablet()
+        flex-direction: column
+        align-content: space-around
+      +mobile()
+        flex-direction: column
+        align-content: space-around
+      .text
+        max-width: 690px
+        padding: 20px 40px
+
+      .illustration
+        padding: 20px 40px
+
+      h2
+        thin 40px 45px
+        color: blue
+        margin-bottom: 22px
+        +mobile()
+          thin 30px 35px
+
+        &+p
+          max-width 520px
+
+      h3
+        light 20px 24px
+        color: blue
+        margin-bottom: 22px
+        +mobile()
+          bold 16px 24px
+        &~p
+          padding-left: 34px
+          margin-bottom: 8px
+
+      p
+        color: #898989
+        light 20px 30px
+        +mobile()
+          light 16px 24px
+      .checklist
+        .point
+          bold 16px,24px
+          color: blue
+          padding-left: 30px
+          background: image-url('checklist-point.svg') left center no-repeat
+          margin-bottom: 10px
+
+
+
+  .second_screen
+    padding-top: 100px
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+    .members
+      padding-bottom 70px
+      &-title
+        bold 14px 17px
+        color dark-blue
+        text-align center
+        padding-bottom 22px
+
+
+      &-container
+        display flex
+        flex-direction row
+        justify-content space-between
+        flex 1 0 auto
+        width 350px
+        .member
+          flex 0 0 66px
+          height 66px
+          border 1px solid #979797
+          border-radius 500px
+          position relative
+          background #D8D8D8
+          &:after
+            content ""
+            display block
+            position absolute
+            right 0
+            bottom 0
+            width 22px
+            height 22px
+            border-radius 500px
+          for color, i in colors
+            &:nth-child({i+1}):after
+              background: color
+
+    .sponsors
+      width 640px
+      display flex
+      justify-content space-between
+      padding-bottom 60px
+      .sponsor
+        flex 0 0 236px
+        &-type
+          thin 14px 17px
+          color #DADADA
+          text-align center
+        &-logo
+          height 150px
+          width 100%
+          display flex
+          justify-content center
+          align-items center
+          img
+            width 100%
+
+        &-describtion
+          light 20px 24px
+          color #898989
+          text-align center
+
+
+  .powered
+    text-align center
+    light 20 24px
+    color #9B9B9B
+    padding-bottom 30px
+    img
+      width 50px
+      padding-bottom 5px
+
+
+
+
+
+
+
+
+
+
 
 
 

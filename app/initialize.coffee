@@ -5,7 +5,11 @@ $ ->
 
 
 
-
+  $('.slider').slick
+    dots: false
+    arrows: true
+    autoplay: true
+    autoplaySpeed: 9000
 
 
 
