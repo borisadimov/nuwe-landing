@@ -110,6 +110,9 @@ body
     bold 36px 44px
     color dark-blue
     z-index 10
+    +mobile()
+      left: 50%
+      transform translateX(-50%)
 
 
   a.join
@@ -117,17 +120,32 @@ body
     right 20px
     top 20px
     z-index 10
+    +mobile()
+      right initial
+      left 50%
+      transform translateX(-50%)
+      top: 56px
+      background: transparent
+      padding: 0
+      text-decoration: underline
+      &:before
+        display: none
 
   .first_screen
     background #F9F9F9
     height 100vh
     box-sizing border-box
     padding-bottom 40px
+    +mobile()
+      padding-bottom 10px
     .slider
       .slide.first-slide
         background: 100% 40% no-repeat
         background-size: 40% auto
         align-items: flex-start
+        +mobile()
+          background: 100% 32% no-repeat
+          background-size: 40% auto
         .container
           align-items: flex-start
         .text
@@ -195,6 +213,8 @@ body
       .text
         max-width: 690px
         padding: 20px 40px
+        +mobile()
+          padding: 30px 14px 14px 14px
 
       .illustration
         padding: 20px 40px
@@ -205,9 +225,13 @@ body
         margin-bottom: 22px
         +mobile()
           thin 30px 35px
+          margin-bottom: 18px
 
         &+p
           max-width 520px
+          margin-bottom: 60px
+          +mobile()
+            margin-bottom: 20px
 
       h3
         light 20px 24px
@@ -215,15 +239,20 @@ body
         margin-bottom: 22px
         +mobile()
           bold 16px 24px
+          margin-bottom: 16px
         &~p
           padding-left: 34px
           margin-bottom: 8px
+          +mobile()
+            padding-left: 10px
+            margin-bottom: 2px
 
       p
         color: #898989
         light 20px 30px
+        text-shadow 0px 1px 2px rgba(255,255,255,0.7)
         +mobile()
-          light 16px 24px
+          light 15px 22px
       .checklist
         .point
           bold 16px,24px
@@ -243,6 +272,8 @@ body
 
     .members
       padding-bottom 70px
+      +mobile()
+        width 100%
       &-title
         bold 14px 17px
         color dark-blue
@@ -256,6 +287,12 @@ body
         justify-content space-between
         flex 1 0 auto
         width 350px
+        +mobile()
+          width 100%
+          box-sizing border-box
+          padding 0 10px
+          max-width: 350px
+          margin 0 auto
         .member
           flex 0 0 66px
           height 66px
@@ -276,30 +313,51 @@ body
             &:nth-child({i+1}):after
               background: color
 
-    .sponsors
+    .nuwe-sponsors
       width 640px
       display flex
       justify-content space-between
       padding-bottom 60px
-      .sponsor
+      +mobile()
+        flex-direction column
+        width 100%
+        box-sizing border-box
+        padding 0 10px
+
+      .nuwe-sponsor
         flex 0 0 236px
+        +mobile()
+          flex 0 0 263px
+          display: flex
+          flex-direction: column
+          align-items: center
+
         &-type
           thin 14px 17px
           color #DADADA
           text-align center
+          +mobile()
+            color #aaaaaa
+            light: 14px 17px
         &-logo
           height 150px
           width 100%
+          max-width 236px
           display flex
           justify-content center
           align-items center
+
           img
             width 100%
+
 
         &-describtion
           light 20px 24px
           color #898989
           text-align center
+          +mobile()
+            light 16px 21px
+            max-width: 300px
 
 
   .powered
