@@ -120,6 +120,7 @@ body
     right 20px
     top 20px
     z-index 10
+    text-decoration none
     +mobile()
       right initial
       left 50%
@@ -133,19 +134,16 @@ body
 
   .first_screen
     background #F9F9F9
-    height 100vh
+    // height 650px
     box-sizing border-box
-    padding-bottom 40px
-    +mobile()
-      padding-bottom 10px
+    padding-bottom 10px
     .slider
       .slide.first-slide
         background: 100% 40% no-repeat
         background-size: 40% auto
         align-items: flex-start
         +mobile()
-          background: 100% 32% no-repeat
-          background-size: 40% auto
+          background: transparent !important
         .container
           align-items: flex-start
         .text
@@ -184,7 +182,7 @@ body
         .slick-track
           height: 100%
     .slide
-      padding: 90px 30px
+      padding: 60px 30px
       +tablet()
         padding: 60px 30px
       +mobile()
@@ -264,7 +262,7 @@ body
 
 
   .second_screen
-    padding-top: 100px
+    padding-top: 50px
     display: flex
     flex-direction: column
     align-items: center
@@ -362,12 +360,15 @@ body
 
   .powered
     text-align center
-    light 20 24px
-    color #9B9B9B
-    padding-bottom 30px
-    img
-      width 50px
-      padding-bottom 5px
+    a
+      text-align center
+      light 20 24px
+      color #9B9B9B
+      padding-bottom 30px
+      text-decoration none
+      img
+        width 50px
+        padding-bottom 5px
 
 
 
